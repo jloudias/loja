@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group.
+| contains the "web" middleware group....
 | 
 |
 */
@@ -26,6 +26,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/product/{id}', 'App\Http\Controllers\FrontEndController@singleProduct')->name('product.single');
 
+Route::post('/cart/add', 'App\Http\Controllers\ShoppingController@addToCart')->name('cart.add');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
