@@ -20,14 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\FrontEndController@index')->name('index');
 
+//Authentication
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+//Product
 Route::get('/product/{id}', 'App\Http\Controllers\FrontEndController@singleProduct')->name('product.single');
 
+//Shopping Cart
 Route::post('/cart/add', 'App\Http\Controllers\ShoppingController@addToCart')->name('cart.add');
+Route::get('/cart', 'App\Http\Controllers\ShoppingController@cart')->name('cart');
 
+//Voyager Admin
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

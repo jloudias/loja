@@ -10,10 +10,14 @@ class ShoppingController extends Controller
 {
     //
     public function addToCart(Request $request){
-         $pdt = Product::find($request->pdt_id);
 
-         $cart=ShoppingCart::add($pdt->id,$pdt->name,$request->qty,$pdt->price);
+        $pdt = Product::find($request->pdt_id);
+        $cart=ShoppingCart::add($pdt->id,$pdt->name,$request->qty,$pdt->price,['image'=> $pdt->image]);
 
-        dd($cart);
+        return redirect()->route('cart');
+    }
+
+    public function cart(){
+        return view('cart');
     }
 }
