@@ -18,6 +18,7 @@ class ShoppingController extends Controller
     }
 
     public function cart(){
+        //ShoppingCart::destroy();
         return view('cart');
     }
 }

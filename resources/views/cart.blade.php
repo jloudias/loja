@@ -40,7 +40,7 @@
 
                                         <div class="cart-product__item">
                                             <a href="#">
-                                                <img src="{{-- asset('storage/'.$pdt->image) --}}" alt="product" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" style="max-width: 10%;">
+                                                <img src="{{ asset('storage/'.$pdt->image) }}" alt="product" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image">
                                             </a>
                                             <div class="cart-product-content">
                                                 <h5 class="cart-product-title">{{ $pdt->name }}</h5>
@@ -49,7 +49,7 @@
                                     </td>
 
                                     <td class="product-price">
-                                        <h5 class="price amount">{{ $pdt->price }}</h5>
+                                        <h5 class="price amount">R$ {{ number_format($pdt->price,2,',','.') }}</h5>
                                     </td>
 
                                     <td class="product-quantity">
@@ -63,7 +63,7 @@
                                     </td>
 
                                     <td class="product-subtotal">
-                                        <h5 class="total amount">$ {{ $pdt->total }}</h5>
+                                        <h5 class="total amount">R$ {{ number_format($pdt->total,2,',','.') }}</h5>
                                     </td>
 
                                 </tr>  
@@ -99,7 +99,7 @@
 
                         <div class="cart-total">
                             <h3 class="cart-total-title">Cart Totals</h3>
-                            <h5 class="cart-total-total">Total: <span class="price">$ {{ ShoppingCart::total() }}</span></h5>
+                            <h5 class="cart-total-total">Total: <span class="price">R$ {{ number_format(ShoppingCart::total(),2,',','.') }}</span></h5>
                             <a href="20_checkout.html" class="btn btn-medium btn--light-green btn-hover-shadow">
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>
