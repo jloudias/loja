@@ -30,6 +30,7 @@ Route::get('/product/{id}', 'App\Http\Controllers\FrontEndController@singleProdu
 //Shopping Cart
 Route::post('/cart/add', 'App\Http\Controllers\ShoppingController@addToCart')->name('cart.add');
 Route::get('/cart', 'App\Http\Controllers\ShoppingController@cart')->name('cart');
+Route::get('/cart/delete/{id}','App\Http\Controllers\ShoppingController@deleteFromCart')->name('cart.delete');
 
 //Voyager Admin
 Route::group(['prefix' => 'admin'], function () {
