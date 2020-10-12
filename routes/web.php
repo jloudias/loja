@@ -33,6 +33,8 @@ Route::get('/cart', 'ShoppingController@cart')->name('cart');
 Route::get('/cart/delete/{id}','ShoppingController@deleteFromCart')->name('cart.delete');
 Route::get('/cart/reduce/{id}/{qty}', 'ShoppingController@reduceQty')->name('cart.reduce');
 Route::get('/cart/increment/{id}/{qty}', 'ShoppingController@incrementQty')->name('cart.increment');
+Route::get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd')->name('cart.rapid.add');
+Route::get('/cart/checkout', 'ShoppingController@checkout')->name('cart.checkout');
 
 //Voyager Admin
 Route::group(['prefix' => 'admin'], function () {

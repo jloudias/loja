@@ -36,4 +36,16 @@ class ShoppingController extends Controller
         ShoppingCart::update($id, $qty - 1);
         return redirect()->back();
     }
+
+    public function rapidAdd(Request $request, $id){
+
+        $pdt = Product::find($id);
+        $cart=ShoppingCart::add($pdt->id,$pdt->name,1,$pdt->price,['image'=> $pdt->image]);
+
+        return redirect()->route('cart');
+    }
+
+    public function checkout(){
+        return view('checkout');
+    }
 }
