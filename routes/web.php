@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,8 @@ Route::get('/cart/reduce/{id}/{qty}', 'ShoppingController@reduceQty')->name('car
 Route::get('/cart/increment/{id}/{qty}', 'ShoppingController@incrementQty')->name('cart.increment');
 Route::get('/cart/rapid/add/{id}', 'ShoppingController@rapidAdd')->name('cart.rapid.add');
 Route::get('/cart/checkout', 'ShoppingController@checkout')->name('cart.checkout');
+
+Route::get('/email', 'ShoppingController@email')->name('email');
 
 //Voyager Admin
 Route::group(['prefix' => 'admin'], function () {

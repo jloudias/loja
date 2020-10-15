@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use ShoppingCart;
+use Mail;
 
 class ShoppingController extends Controller
 {
@@ -47,5 +48,10 @@ class ShoppingController extends Controller
 
     public function checkout(){
         return view('checkout');
+    }
+
+    public function email(){
+        Mail::to('jloudias@gmail.com')->send(new \App\Mail\PurchaseSuccessful);
+        return redirect('/');
     }
 }
